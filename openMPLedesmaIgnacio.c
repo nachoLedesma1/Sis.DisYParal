@@ -126,7 +126,7 @@ main(int argc, char **argv){
 
     int t;//relog
     //cada t es igual a 1 semana
-    int cantCelReal = 30;//para probar nomas despues agregar los valores reales
+    int cantCelReal = 800;//para probar nomas despues agregar los valores reales
 
     int fil = cantCelReal, col = cantCelReal;
 
@@ -153,7 +153,7 @@ main(int argc, char **argv){
                     .verde = 0};
 
     //enpieza el tiempo 
-    for(int i = 0; i < 10; i ++){
+    for(int i = 0; i < 5; i ++){
         struct timespec begin, end; 
         clock_gettime(CLOCK_REALTIME, &begin);
 

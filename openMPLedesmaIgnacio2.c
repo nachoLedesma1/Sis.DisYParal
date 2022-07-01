@@ -153,7 +153,7 @@ main(int argc, char **argv){
                     .verde = 0};
 
     //enpieza el tiempo 
-    for(int i = 0; i < 5; i ++){
+    for(int i = 0; i < 10; i ++){
         struct timespec begin, end; 
         clock_gettime(CLOCK_REALTIME, &begin);
 
@@ -167,7 +167,7 @@ main(int argc, char **argv){
             int cantCeldas = cantCelReal-1; //porque lo hice así sin darme Cuenta
             int ran;
             Salud vecino;
-            #pragma omp parallel num_threads(2) 
+            #pragma omp parallel num_threads(4) 
             
             #pragma omp parallel for private (vecino, cantVecin, i ,j)
             for( i = 0; i<cantCelReal; i++){

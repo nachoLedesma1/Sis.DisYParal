@@ -126,7 +126,7 @@ main(int argc, char **argv){
 
     int t;//relog
     //cada t es igual a 1 semana
-    int cantCelReal = 800;//para probar nomas despues agregar los valores reales
+    int cantCelReal = 20;//para probar nomas despues agregar los valores reales
 
     int fil = cantCelReal, col = cantCelReal;
 

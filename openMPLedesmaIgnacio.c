@@ -625,7 +625,7 @@ main(int argc, char **argv){
         //tiempos[i] = total;
         printf("El tiempo es %f\n ", total);
         //printf("Tiempo: %.3f segundos.\n", total);
-    //}//for cant de repes 
+    }//for cant de repes 
    /* printf("Los tiempos son: ");
     for(int j = 0; j<10; j++){
         printf("%f, ",tiempos[j]);

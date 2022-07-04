@@ -153,7 +153,11 @@ main(int argc, char **argv){
                     .verde = 0};
 
     //enpieza el tiempo 
+<<<<<<< HEAD
     for(int i = 0; i < 5; i ++){
+=======
+   // for(int i = 0; i < 10; i ++){
+>>>>>>> 0caff764c4b1b4c14cd61842254ff2c86c1345e9
         struct timespec begin, end; 
         clock_gettime(CLOCK_REALTIME, &begin);
 
@@ -618,14 +622,15 @@ main(int argc, char **argv){
         long seg = end.tv_sec - begin.tv_sec;
         long nanoseg = end.tv_nsec - begin.tv_nsec;
         double total = seg + nanoseg*1e-9;
-        tiempos[i] = total;
+        //tiempos[i] = total;
+        printf("El tiempo es %f\n ", total);
         //printf("Tiempo: %.3f segundos.\n", total);
-    }//for cant de repes 
-    printf("Los tiempos son: ");
+    //}//for cant de repes 
+   /* printf("Los tiempos son: ");
     for(int j = 0; j<10; j++){
         printf("%f, ",tiempos[j]);
     } 
-    printf("\n");
+    printf("\n");*/
     //libero memoria
     for (int i= 0; i<fil; i++){//puede ser fil o col total son lo mismo
     free(matris[i]);

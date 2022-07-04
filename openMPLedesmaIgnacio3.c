@@ -167,7 +167,7 @@ main(int argc, char **argv){
             int cantCeldas = cantCelReal-1; //porque lo hice así sin darme Cuenta
             int ran;
             Salud vecino;
-            #pragma omp parallel num_threads(2) 
+            #pragma omp parallel num_threads(4) 
             
             #pragma omp parallel for private (vecino, cantVecin, i ,j)
             for( i = 0; i<cantCelReal; i++){

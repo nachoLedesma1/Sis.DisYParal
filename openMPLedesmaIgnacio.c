@@ -153,11 +153,11 @@ main(int argc, char **argv){
                     .verde = 0};
 
     //enpieza el tiempo 
-<<<<<<< HEAD
+
     for(int i = 0; i < 5; i ++){
-=======
+
    // for(int i = 0; i < 10; i ++){
->>>>>>> 0caff764c4b1b4c14cd61842254ff2c86c1345e9
+
         struct timespec begin, end; 
         clock_gettime(CLOCK_REALTIME, &begin);
 

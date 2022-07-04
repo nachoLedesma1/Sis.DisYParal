@@ -153,7 +153,7 @@ main(int argc, char **argv){
                     .verde = 0};
 
     //enpieza el tiempo 
-    for(int i = 0; i < 10; i ++){
+    for(int i = 0; i < 5; i ++){
         struct timespec begin, end; 
         clock_gettime(CLOCK_REALTIME, &begin);
 
@@ -399,8 +399,8 @@ main(int argc, char **argv){
                         }
 
                 //---------------------------------------------------------------------------
-                        #pragma omp critical 
-                            {
+                        //#pragma omp critical 
+                           // {
                             vecEnfermo = vecino.rojo / cantVecin; // saca un porcentaje de todos los enfermos
                             matris2[i][j].Estado.verde = 1;
                             if(matris[i][j].Herida == 1 && t != 0){ //  t!= 0 por si en la primera iteración ya tenia un aherida para no curarla porque no paso 1 sematrisna
@@ -482,11 +482,11 @@ main(int argc, char **argv){
                                 }
                             }
                             
-                        }//si esta sano
-                    }
+                    }//si esta sano
+                    //}
             //--------------------------------------------------------------------------------------------------------------
-                    #pragma omp critical 
-                        {
+                    //#pragma omp critical 
+                       // {
                         if(matris[i][j].Estado.naranja == 1){ //infectado con esporas
                             matris2[i][j].Estado.naranja = 1;
                             if(matris[i][j].Enfermo < 3){
@@ -597,7 +597,7 @@ main(int argc, char **argv){
                                 matris2[i][j].Podado ++;
                             }
                         }
-                    }//critical
+                    //}//critical
                 }//for j
             }//for i
 

@@ -1,2 +1,2 @@
-nodo1 slots = 30
-nodo2 slots = 30
+nodo1 slots = 20
+nodo2 slots = 20

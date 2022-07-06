@@ -153,7 +153,11 @@ main(int argc, char **argv){
                     .verde = 0};
 
     //enpieza el tiempo 
-    for(int i = 0; i < 10; i ++){
+
+    for(int i = 0; i < 5; i ++){
+
+   // for(int i = 0; i < 10; i ++){
+
         struct timespec begin, end; 
         clock_gettime(CLOCK_REALTIME, &begin);
 
@@ -163,15 +167,15 @@ main(int argc, char **argv){
         
         for (t = 0; t<1200; t++){
             Celda **aux; //para cuando se cambia de estado
-            int i, j, vecEnfermo, suceptibilidad, pContagio, cantVecin;
+            int  vecEnfermo, suceptibilidad, pContagio, cantVecin;
             int cantCeldas = cantCelReal-1; //porque lo hice así sin darme Cuenta
             int ran;
             Salud vecino;
             #pragma omp parallel num_threads(4) 
             
-            #pragma omp parallel for private (vecino, cantVecin, i ,j)
-            for( i = 0; i<cantCelReal; i++){
-                for( j = 0; j<cantCelReal; j++){
+            #pragma omp parallel for private (vecino, cantVecin)
+            for(int i = 0; i<cantCelReal; i++){
+                for(int j = 0; j<cantCelReal; j++){
                     vecino.blanco = 0;
                     vecino.azul = 0;
                     vecino.rojo = 0;
@@ -399,8 +403,8 @@ main(int argc, char **argv){
                         }
 
                 //---------------------------------------------------------------------------
-                        #pragma omp critical 
-                            {
+                        //#pragma omp critical 
+                           // {
                             vecEnfermo = vecino.rojo / cantVecin; // saca un porcentaje de todos los enfermos
                             matris2[i][j].Estado.verde = 1;
                             if(matris[i][j].Herida == 1 && t != 0){ //  t!= 0 por si en la primera iteración ya tenia un aherida para no curarla porque no paso 1 sematrisna
@@ -482,11 +486,11 @@ main(int argc, char **argv){
                                 }
                             }
                             
-                        }//si esta sano
-                    }
+                    }//si esta sano
+                    //}
             //--------------------------------------------------------------------------------------------------------------
-                    #pragma omp critical 
-                        {
+                    //#pragma omp critical 
+                       // {
                         if(matris[i][j].Estado.naranja == 1){ //infectado con esporas
                             matris2[i][j].Estado.naranja = 1;
                             if(matris[i][j].Enfermo < 3){
@@ -597,7 +601,7 @@ main(int argc, char **argv){
                                 matris2[i][j].Podado ++;
                             }
                         }
-                    }//critical
+                    //}//critical
                 }//for j
             }//for i
 
@@ -618,14 +622,15 @@ main(int argc, char **argv){
         long seg = end.tv_sec - begin.tv_sec;
         long nanoseg = end.tv_nsec - begin.tv_nsec;
         double total = seg + nanoseg*1e-9;
-        tiempos[i] = total;
+        //tiempos[i] = total;
+        printf("El tiempo es %f\n ", total);
         //printf("Tiempo: %.3f segundos.\n", total);
     }//for cant de repes 
-    printf("Los tiempos son: ");
+   /* printf("Los tiempos son: ");
     for(int j = 0; j<10; j++){
         printf("%f, ",tiempos[j]);
     } 
-    printf("\n");
+    printf("\n");*/
     //libero memoria
     for (int i= 0; i<fil; i++){//puede ser fil o col total son lo mismo
     free(matris[i]);

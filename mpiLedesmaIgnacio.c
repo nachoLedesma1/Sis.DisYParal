@@ -762,7 +762,7 @@ main(int argc, char **argv){
 
     Celda *matris, *matris2, *recibo, *rec2, *super1, *super2, *infe1, *infe2; //[cantCeldas][cantCeldas];
     
-
+/*
     matris = (Celda *) malloc (sizeof(Celda)*fil*col);//declaro arreglo de 1 dimensión 
     
     matris2 = (Celda *) malloc (sizeof(Celda)*fil*col);
@@ -776,13 +776,45 @@ main(int argc, char **argv){
     super2 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
       
     infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
-    infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+    infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);*/
     //inicio tiempo
     inicio = MPI_Wtime();
     //MPI_Barrier(MPI_COMM_WORLD);
     for(int j =0; j<5; j++){
         if(node == 0){ 
+            matris = (Celda *) malloc (sizeof(Celda)*fil*col);//declaro arreglo de 1 dimensión 
+    
+            matris2 = (Celda *) malloc (sizeof(Celda)*fil*col);
             inicializar(matris, fil, col); //cambiar logica
+
+            recibo = (Celda *) malloc (sizeof(Celda)*cantEnvio*col);//probando
+
+            rec2 = (Celda *) malloc (sizeof(Celda)*cantEnvio*col);
+
+            //auxiliares 
+            super1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+            super2 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+
+            infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+            infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+            //inicio tiempo
+        }
+        else {
+                matris = (Celda *) malloc (sizeof(Celda)*fil*col);//declaro arreglo de 1 dimensión 
+    
+                    matris2 = (Celda *) malloc (sizeof(Celda)*fil*col);
+
+                    recibo = (Celda *) malloc (sizeof(Celda)*cantEnvio*col);//probando
+
+                    rec2 = (Celda *) malloc (sizeof(Celda)*cantEnvio*col);
+
+                    //auxiliares 
+                    super1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+                    super2 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+
+                    infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+                    infe1 = (Celda *) malloc (sizeof(Celda)*cantCelReal);
+                    //inicio tiempo
         }
         
         if(node == 0 ){

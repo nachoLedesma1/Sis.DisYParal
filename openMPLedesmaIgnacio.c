@@ -171,7 +171,7 @@ main(int argc, char **argv){
             int cantCeldas = cantCelReal-1; //porque lo hice así sin darme Cuenta
             int ran;
             Salud vecino;
-            #pragma omp parallel num_threads(8) 
+            #pragma omp parallel num_threads(16) 
             {
             #pragma omp parallel for private (vecino, cantVecin)
             for(int i = 0; i<cantCelReal; i++){
@@ -611,7 +611,7 @@ main(int argc, char **argv){
             matris = matris2;
             matris2 = aux;
 
-            }          
+            }//del numero de threat          
         }//for t= tiempo de vida       
     
         //para probar no hay que imprimir nada
